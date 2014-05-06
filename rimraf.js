@@ -108,7 +108,7 @@ function fixWinEPERM (p, options, er, cb) {
   })
 }
 
-function fixWinEPERMSync (p, options, er, cb) {
+function fixWinEPERMSync (p, options, er) {
   try {
     options.chmodSync(p, 666)
   } catch (er2) {
