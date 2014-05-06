@@ -108,7 +108,7 @@ function fixWinEPERM (p, options, er, cb) {
   })
 }
 
-function fixWinEPERMSync (p, er, cb) {
+function fixWinEPERMSync (p, options, er, cb) {
   try {
     options.chmodSync(p, 666)
   } catch (er2) {
@@ -181,7 +181,7 @@ function rimrafSync (p, options) {
     if (er.code === "ENOENT")
       return
     if (er.code === "EPERM")
-      return isWindows ? fixWinEPERMSync(p, er) : rmdirSync(p, er)
+      return isWindows ? fixWinEPERMSync(p, options, er) : rmdirSync(p, er)
     if (er.code !== "EISDIR")
       throw er
     rmdirSync(p, options, er)
